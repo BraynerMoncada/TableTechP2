@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="root" prefHeight="258.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appController">
+    <children>
+        <Button layoutX="125.0" layoutY="177.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Iniciar Sesión" />
+        <Label layoutX="28.0" layoutY="64.0" text="Usuario:">
+            <font>
+                <Font name="Bell MT" size="19.0" />
+            </font>
+        </Label>
+        <Label layoutX="28.0" layoutY="129.0" text="Contraseña:">
+            <font>
+                <Font name="Bell MT" size="19.0" />
+            </font>
+        </Label>
+        <TextField fx:id="usuarioTextField" layoutX="125.0" layoutY="61.0" prefHeight="28.0" prefWidth="188.0">
+            <font>
+                <Font name="Bodoni MT" size="15.0" />
+            </font></TextField>
+        <PasswordField fx:id="contrasenaPasswordField" layoutX="125.0" layoutY="126.0" prefHeight="28.0" prefWidth="188.0">
+            <font>
+                <Font name="Bodoni MT" size="15.0" />
+            </font></PasswordField>
+    </children>
+</AnchorPane>
