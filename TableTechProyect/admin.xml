@@ -1,0 +1,11 @@
+<users>
+    <user>
+        <usuario>usuario</usuario>
+        <email>ejemplo3@gmail.com</email>
+        <password>password3</password>
+    </user>
+    <user>
+        <email>ejemplo4@gmail.com</email>
+        <password>password4</password>
+    </user>
+</users>

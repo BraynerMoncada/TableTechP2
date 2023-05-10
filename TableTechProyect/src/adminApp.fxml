@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appController">
+    <children>
+        <Label layoutX="180.0" layoutY="124.0" prefHeight="137.0" prefWidth="239.0" text="ESTA ES ADMINAPP">
+            <font>
+                <Font name="Bodoni MT" size="22.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

@@ -27,6 +27,7 @@ public class appController {
     private Button myButton;
 
     ArbolBinarioBusqueda arbolCliente = new ArbolBinarioBusqueda();
+    ArbolBinarioBusqueda arbolAdmin = new ArbolBinarioBusqueda();
     @FXML
 
     /**
@@ -36,18 +37,29 @@ public class appController {
      */
     private void handleButtonAction(ActionEvent event) {
         //Lee los datos del archivo XML y los agrega al árbol binario de búsqueda
-        HashMap<String, String> xmlData = XMLReader.readXML("usuarios.xml");
-        for (Map.Entry<String, String> entry : xmlData.entrySet()) {
+        HashMap<String, String> xmlData1 = XMLReader.readXML("usuarios.xml");
+        for (Map.Entry<String, String> entry : xmlData1.entrySet()) {
             String email = entry.getKey();
             String password = entry.getValue();
             Usuario usuario = new Usuario(email,password);
 
-
             arbolCliente.insertar(usuario);
+
         }
+        HashMap<String, String> xmlData2 = XMLReader.readXML("admin.xml");
+        for (Map.Entry<String, String> entry : xmlData2.entrySet()) {
+            String email = entry.getKey();
+            String password = entry.getValue();
+            Usuario usuario = new Usuario(email,password);
+
+            arbolAdmin.insertar(usuario);
+        }
+
         String correo = usuarioTextField.getText();
         String contrasena = contrasenaPasswordField.getText();
+        boolean puedeiniciarSesionAdmin = arbolAdmin.buscar(correo,contrasena);
         boolean puedeIniciarSesion = arbolCliente.buscar(correo, contrasena);
+
 
         if (puedeIniciarSesion) {
             // Creamos un nuevo hilo para el servidor
@@ -88,9 +100,45 @@ public class appController {
                 e.printStackTrace();
             }
 
-        }
+        } else if (puedeiniciarSesionAdmin) {
+                // Creamos un nuevo hilo para el servidor
+                Thread serverThread = new Thread(new Runnable() {
+                    public void run() {
+                        try {
+                            ServerApp.main(new String[0]);
+                        } catch (IOException e) {
+                            // Manejar la excepción aquí
+                            e.printStackTrace();
+                        }
+                    }
+                });
 
-        else{
+                // Creamos un nuevo hilo para el cliente
+                Thread clientThread = new Thread(new Runnable() {
+                    public void run() {
+                        try {
+                            Cliente.main(new String[0]);
+                        } catch (IOException e) {
+                            // Manejar la excepción aquí
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                // Iniciamos ambos hilos
+                serverThread.start();
+                clientThread.start();
+
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminApp.fxml"));
+                    Parent root = fxmlLoader.load();
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.showAndWait();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        } else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setContentText("Contraseña o correo incorrecto\n \nPor favor intenta de nuevo");
