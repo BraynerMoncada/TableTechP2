@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 
 
 /**
@@ -23,7 +24,20 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 335, 258));
         primaryStage.show();
 
+        // Creamos un nuevo hilo para el servidor
+        Thread serverThread = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    ServerApp.main(new String[0]);
+                } catch (IOException e) {
+                    // Manejar la excepción aquí
+                    e.printStackTrace();
+                }
+            }
+        });
+        serverThread.start();
     }
+
 
 
 
