@@ -1,0 +1,58 @@
+{
+  "menu": [
+    {
+      "nombre": "Pollo asado con papas al horno",
+      "descripcion": "Delicioso pollo asado con papas al horno, acompañado de una ensalada mixta y una bebida a elección",
+      "ingredientes": [
+        "pollo entero",
+        "papas",
+        "aceite de oliva",
+        "sal",
+        "pimienta",
+        "cebolla",
+        "lechuga",
+        "tomate",
+        "zanahoria",
+        "vinagreta"
+      ],
+      "precio": 8.50
+    },
+    {
+      "nombre": "Lasaña vegetariana",
+      "descripcion": "Sabrosa lasaña vegetariana con una ensalada mixta y una bebida a elección",
+      "ingredientes": [
+        "pasta de lasaña",
+        "espinacas",
+        "queso ricotta",
+        "salsa de tomate",
+        "cebolla",
+        "ajo",
+        "lechuga",
+        "tomate",
+        "zanahoria",
+        "vinagreta"
+      ],
+      "precio": 7.50
+    },
+    {
+      "nombre": "Arroz con pollo",
+      "descripcion": "Arroz con pollo, acompañado de una ensalada mixta y una bebida a elección",
+      "ingredientes": [
+        "arroz",
+        "pollo",
+        "cebolla",
+        "ajo",
+        "pimiento",
+        "tomate",
+        "aceite",
+        "sal",
+        "pimienta",
+        "lechuga",
+        "tomate",
+        "zanahoria",
+        "vinagreta"
+      ],
+      "precio": 6.50
+    }
+  ]
+}

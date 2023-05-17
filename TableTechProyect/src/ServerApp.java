@@ -4,6 +4,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.net.*;
@@ -14,7 +17,7 @@ import java.util.Map;
  * Clase servidor: Encargada de interactuar con el cliente, haciendo la funcion se servidor.
  */
 public class ServerApp {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
         System.out.println("Servidor conectado");
         ServerSocket serverSocket = new ServerSocket(1234, 100);
         Socket clientSocket = serverSocket.accept();
@@ -66,6 +69,21 @@ public class ServerApp {
 
 
         }
+        // Recorrer la lista de platillos y agregarlos al árbol AVL
+
+        ArbolAvl arbolPlatillos = new ArbolAvl();
+        JSONObject datos = (JSONObject) JsonReader.leerArchivo("platillos.json");
+        for (Object clave : datos.keySet()) {
+            Object valorObj = datos.get(clave);
+            if (valorObj instanceof String) {
+                String valor = (String) valorObj;
+                int numero = Integer.parseInt(valor);
+                arbolPlatillos.insertar(numero);
+            } else if (valorObj instanceof JSONArray) {
+                JSONArray valorArray = (JSONArray) valorObj;
+            }
+        }
+
     }
 }
 
