@@ -55,20 +55,14 @@ public class ServerApp {
             String correo = partes[1];
             String contrasena = partes[2];
             boolean puedeIniciarSesion = arbolUsuarios.buscar(correo, contrasena);
-            boolean puedeIniciarSesionAdmin = arbolAdmin.buscar(correo, contrasena);
-            System.out.println(partes[1] +" " + partes[2]);
-
-            if (puedeIniciarSesion) {
-                out.println("OK_CLIENTE");
-            } else if (puedeIniciarSesionAdmin) {
-                out.println("OK_ADMIN");
-
+            System.out.println(partes[1] + " " + partes[2]);
+            if (!puedeIniciarSesion) {
+                    out.println("OK_ADMIN");
             } else {
-                out.println("NO_VALIDO");
+                out.println("OK_CLIENTE");
             }
-
-
         }
+
         // Recorrer la lista de platillos y agregarlos al árbol AVL
 
         ArbolAvl arbolPlatillos = new ArbolAvl();

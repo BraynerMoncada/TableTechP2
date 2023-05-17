@@ -2,15 +2,11 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appController">
-    <children>
-        <Label layoutX="180.0" layoutY="124.0" prefHeight="137.0" prefWidth="239.0" text="ESTA ES CLIENT APP">
-            <font>
-                <Font name="Bodoni MT" size="22.0" />
-            </font>
-        </Label>
-    </children>
+   <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Historico de pedidos" />
+      <Button layoutX="236.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" text="Pedidos activos" />
+      <Button layoutX="459.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" text="Agregar pedido" />
+   </children>
 </AnchorPane>
